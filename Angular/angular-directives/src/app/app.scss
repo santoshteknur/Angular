@@ -1,0 +1,112 @@
+// styles.scss
+@use 'sass:color';
+
+$primary-color: #204ee7;
+$accent-color: #d500f9;
+$background-color: #f9f9f9;
+$border-color: #e0e0e0;
+$text-color: #333;
+$highlight-color: #f0f4ff;
+$font-stack: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: $background-color;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  font-family: $font-stack;
+  color: $text-color;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2em;
+    color: $primary-color;
+  }
+
+  .demo-block {
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border: 1px solid $border-color;
+    border-radius: 1rem;
+    background: white;
+
+    h2 {
+      font-size: 1.5rem;
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+
+    .controls {
+      margin-bottom: 1rem;
+
+      button, select {
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: $primary-color;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+        background-color: color.adjust($primary-color, $lightness: -10%);
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+        }
+      }
+
+      select {
+        background: white;
+        color: $text-color;
+        border: 1px solid $border-color;
+      }
+    }
+
+    .highlight {
+      padding: 1rem;
+      background: $highlight-color;
+      border-radius: 0.5rem;
+
+      p {
+        margin: 0.5rem 0;
+        line-height: 1;
+      }
+
+      ul {
+        padding-left: 1.5rem;
+
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 2rem;
+    color: $text-color;
+
+    span {
+      display: inline-block;
+      margin-top: 1rem;
+    }
+  }
+
+  // Attribute Directive Styling
+  .special {
+    font-style: italic;
+    color: $accent-color;
+    background: rgba($accent-color, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+  }
+}
