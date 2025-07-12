@@ -1,0 +1,43 @@
+<div class="page-layout">
+  <aside class="lifecycle-log-sidebar">
+    <div class="log-header">
+      <h4>Lifecycle Hook Logs</h4>
+      <button class="clear-logs-btn" (click)="clearLogs()" [disabled]="lifecycleLogs.length === 0">Clear Logs</button>
+    </div>
+    <ul>
+      <li *ngFor="let log of lifecycleLogs">
+        {{ log }}
+      </li>
+    </ul>
+    <div *ngIf="lifecycleLogs.length === 0" class="log-section-empty">
+      No logs yet. Interact with the UI to see lifecycle events!
+    </div>
+  </aside>
+
+  <section class="parent-main-content">
+    <h2>👨 Parent Component</h2>
+    <p>
+      <strong>Purpose:</strong> Controls the visibility and input data of the child component.<br>
+      <span class="explain">
+        <b>Toggle Child Component</b> mounts/unmounts the child.<br>
+        <b>Change Input Data</b> updates the input and triggers hooks.
+      </span>
+    </p>
+
+    <div class="parent-actions">
+      <button (click)="toggleChild()" [class.active]="isChildVisible">
+        {{ isChildVisible ? 'Hide' : 'Show' }} Child Component
+      </button>
+      <button (click)="changeData()">Change Input Data</button>
+    </div>
+
+    <div *ngIf="isChildVisible" class="child-wrapper animate-in">
+      <app-child [inputData]="inputData" (lifecycleLog)="onLifecycleLog($event)"></app-child>
+    </div>
+
+    <div class="input-data-info">
+      <span>Current input data sent to child: </span>
+      <code>{{ inputData }}</code>
+    </div>
+  </section>
+</div>
