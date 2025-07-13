@@ -124,5 +124,5 @@ Learning by doing is the best way!
 This playground is designed to make Angular's lifecycle hooks **visual, interactive, and fun**.  
 If you have ideas for improvement, feel free to fork and enhance it.
 
-![App Screenshot](src/asserts/Screenshot 2025-07-13 at 12.20.14 PM.png)
+![App Screenshot](src/assets/Screenshot.png)
 Happy coding! 🚀
