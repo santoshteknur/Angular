@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef } from '@angular/core';
 import { Child } from "../child/child";
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +12,7 @@ export class Parent {
   isChildVisible = true;
   inputData = 'Initial data';
   lifecycleLogs: string[] = [];
-
+  constructor(private cdr: ChangeDetectorRef) {}
   toggleChild() {
     this.isChildVisible = !this.isChildVisible;
     this.lifecycleLogs.push(
@@ -38,3 +38,5 @@ export class Parent {
     this.lifecycleLogs = [];
   }
 }
+
+
